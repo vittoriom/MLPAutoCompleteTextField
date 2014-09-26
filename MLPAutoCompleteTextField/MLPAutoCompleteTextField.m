@@ -1039,8 +1039,11 @@ withAutoCompleteString:(NSString *)string
             editDistanceOfCurrentString = [inputString asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
         }
         @catch (NSException *exception) {
+            NSString *currentStringRedux = [currentString stringByTrimmingCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
+            maximumRange = (inputString.length < currentStringRedux.length) ? inputString.length : currentStringRedux.length;
+            
             editDistanceOfCurrentString = [[inputString stringByTrimmingCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]
-                                           asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
+                                           asciiLevenshteinDistanceWithString:[currentStringRedux substringWithRange:NSMakeRange(0, maximumRange)]];
         }
         
         NSDictionary * stringsWithEditDistances = @{kSortInputStringKey : currentString ,
