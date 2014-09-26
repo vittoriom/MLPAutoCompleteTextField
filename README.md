@@ -18,7 +18,7 @@ Usage
 ---------
 The goal for _MLPAutoCompleteTextField_ is to create an autocomplete textfield that is quick and easy to use, yet eminently customizable. To get a working _MLPAutoCompleteTextField_ instance, ensure you have done the following:
 
-0. Add the _MLPAutoCompleteTextField_, _NSString+Levenshtein_, _MLPAutoCompleteDataSource_ and _MLPAutoCompleteTextFieldDelegate_ files into your project (should have six files in total). 
+0. Add the _MLPAutoCompleteTextField_, _NSString+Levenshtein_, _MLPAutoCompletionObject.h_, _MLPAutoCompleteDataSource_ and _MLPAutoCompleteTextFieldDelegate_ files into your project (should have seven files in total). 
 
 1. Have an _MLPAutoCompleteTextField_ instance allocated and initialized within some view.
 
@@ -42,7 +42,7 @@ CocoaPods are the best way to manage library dependencies in Objective-C project
 Learn more at http://cocoapods.org
 
 Add this to your podfile to add the MLPAutoCompleteTextField to your project.
-`pod 'MLPAutoCompleteTextField', '~> 1.5'`
+`pod 'MLPAutoCompleteTextField', '~> 1.6'`
 
 
 
@@ -153,5 +153,5 @@ Be sure to check out these other libraries:
 [MLPSpotlight](https://github.com/EddyBorja/MLPSpotlight)<br />
 [UIColor+MLPFlatColors](https://github.com/EddyBorja/UIColor-MLPFlatColors)<br />
 [MLPAccessoryBadge](https://github.com/EddyBorja/MLPAccessoryBadge)<br />
+[EBPhotoPages Gallery](https://github.com/EddyBorja/EBPhotoPages)<br />
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/119b08c6f189ea6973d4cf1d35e09c4c "githalytics.com")](http://githalytics.com/EddyBorja/MLPAutoCompleteTextField)
