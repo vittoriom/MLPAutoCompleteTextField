@@ -1039,7 +1039,7 @@ withAutoCompleteString:(NSString *)string
             editDistanceOfCurrentString = [inputString asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
         }
         @catch (NSException *exception) {
-            NSString *currentStringRedux = [currentString stringByTrimmingCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
+            NSString *currentStringRedux = [currentString stringByReplacingOccurrencesOfString:@"´" withString:@""];
             maximumRange = (inputString.length < currentStringRedux.length) ? inputString.length : currentStringRedux.length;
             
             editDistanceOfCurrentString = [[inputString stringByTrimmingCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]
