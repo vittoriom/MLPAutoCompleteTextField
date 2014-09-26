@@ -1012,7 +1012,16 @@ withAutoCompleteString:(NSString *)string
         }
         
         NSUInteger maximumRange = (inputString.length < currentString.length) ? inputString.length : currentString.length;
-        float editDistanceOfCurrentString = [inputString asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
+        
+        float editDistanceOfCurrentString = .0f;
+        
+        @try {
+            editDistanceOfCurrentString = [inputString asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
+        }
+        @catch (NSException *exception) {
+            editDistanceOfCurrentString = [[inputString stringByTrimmingCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]
+                                           asciiLevenshteinDistanceWithString:[currentString substringWithRange:NSMakeRange(0, maximumRange)]];
+        }
         
         NSDictionary * stringsWithEditDistances = @{kSortInputStringKey : currentString ,
                                                          kSortObjectKey : originalObject,
