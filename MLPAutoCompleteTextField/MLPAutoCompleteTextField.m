@@ -775,7 +775,7 @@ withAutoCompleteString:(NSString *)string
     CGFloat height = [self autoCompleteTableHeightForTextField:textField withNumberOfRows:numberOfRows];
     
     newTableViewFrame.size.height = height;
-    newTableViewFrame.origin.y    = converted_originY;
+    newTableViewFrame.origin.y    = converted_originY + 30;
     
     if(!textField.autoCompleteTableAppearsAsKeyboardAccessory){
         newTableViewFrame.size.height += textfieldTopInset;
